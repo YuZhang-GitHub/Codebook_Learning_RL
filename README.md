@@ -3,16 +3,17 @@ This is the Python codes related to the following article: Yu Zhang, Muhammad Al
 # Abstract of the Article
 Millimeter wave (mmWave) and terahertz MIMO systems rely on pre-defined beamforming codebooks for both initial access and data transmission. These pre-defined codebooks, however, are commonly not optimized for specific environments, user distributions, and/or possible hardware impairments. This leads to large codebook sizes with high beam training overhead which makes it hard for these systems to support highly mobile applications. To overcome these limitations, this paper develops a deep reinforcement learning framework that learns how to optimize the codebook beam patterns relying only on the receive power measurements. The developed model learns how to adapt the beam patterns based on the surrounding environment, user distribution, hardware impairments, and array geometry. Further, this approach does not require any knowledge about the channel, RF hardware, or user positions. To reduce the learning time, the proposed model designs a novel Wolpertinger-variant architecture that is capable of efficiently searching the large discrete action space. The proposed learning framework respects the RF hardware constraints such as the constant-modulus and quantized phase shifter constraints. Simulation results confirm the ability of the developed framework to learn near-optimal beam patterns for line-of-sight (LOS), non-LOS (NLOS), mixed LOS/NLOS scenarios and for arrays with hardware impairments without requiring any channel knowledge.
 
-# How to generate this codebook beam patterns figure?
+# How to regenerate Fig. 7(c) in [this](https://ieeexplore.ieee.org/document/9610084) paper?
 1. Download all the files of this repository.
 2. Run `main.py`.
-3. When `main.py` finishes, load `theta_self_sup_64beams.mat` in Matlab.
-4. Run `plot_pattern((1/sqrt(size(codebook,1)))*exp(1j*codebook))` in Matlab Command Window, which will give the codebook beam patterns figure as shown below.
+3. When `main.py` finishes, run `read_beams.py`.
+4. Load `beam_codebook` in Matlab.
+5. Run `plot_pattern(beams.')` in Matlab Command Window, which will give Fig. 7(c) shown below as result.
 
-![Figure](https://github.com/YuZhang-GitHub/CBL_Self_Supervised/blob/master/codebook_64.png)
+![Figure](https://github.com/YuZhang-GitHub/CBL_RL/blob/main/LOS_4beams.png)
 
 If you have any problems with generating the figure, please contact [Yu Zhang](https://www.linkedin.com/in/yu-zhang-391275181/).
 
 # License and Referencing
 This code package is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/). If you in any way use this code for research that results in publications, please cite our original article:
-> Muhammad Alrabeiah, Yu Zhang, and Ahmed Alkhateeb, “[Neural Networks Based Beam Codebooks: Learning mmWave Massive MIMO Beams that Adapt to Deployment and Hardware](https://arxiv.org/pdf/2006.14501),” arXiv e-prints, p. arXiv:2006.14501, Jun 2020.
+> Yu Zhang, Muhammad Alrabeiah, and Ahmed Alkhateeb, “[Reinforcement Learning of Beam Codebooks in Millimeter Wave and Terahertz MIMO Systems](https://ieeexplore.ieee.org/document/9610084),” in IEEE Transactions on Communications, 2021.
