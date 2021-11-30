@@ -7,7 +7,7 @@ Millimeter wave (mmWave) and terahertz MIMO systems rely on pre-defined beamform
 1. Download all the files of this repository.
 2. Run `main.py`.
 3. When `main.py` finishes, run `read_beams.py`.
-4. Load `beam_codebook` in Matlab.
+4. Load `beam_codebook.mat` in Matlab.
 5. Run `plot_pattern(beams.')` in Matlab Command Window, which will give Fig. 7(c) shown below as result.
 
 ![Figure](https://github.com/YuZhang-GitHub/CBL_RL/blob/main/LOS_4beams.png)
