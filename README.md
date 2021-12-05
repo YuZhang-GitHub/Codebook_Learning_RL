@@ -8,7 +8,10 @@ Millimeter wave (mmWave) and terahertz MIMO systems rely on pre-defined beamform
 ## Dependencies
 1. Python 3.8.8
 2. Pytorch 1.9.1
-3. NVIDIA GPU with a compatible CUDA toolkit (see [NVIDIA website](https://developer.nvidia.com/cuda-toolkit))
+3. Numpy 1.20.1
+4. Scipy 1.6.2
+5. Sklearn 0.24.1
+6. NVIDIA GPU with a compatible CUDA toolkit (see [NVIDIA website](https://developer.nvidia.com/cuda-toolkit))
 
 ## Following these steps
 1. Download all the files of this repository.
