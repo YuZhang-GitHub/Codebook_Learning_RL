@@ -22,7 +22,9 @@ Millimeter wave (mmWave) and terahertz MIMO systems rely on pre-defined beamform
 
 ![Figure](https://github.com/YuZhang-GitHub/CBL_RL/blob/main/LOS_4beams.png)
 
-If you have any problems with generating the figure, please contact [Yu Zhang](https://www.linkedin.com/in/yu-zhang-391275181/).
+If you have any problems with generating the figure, please contact [Yu Zhang](https://www.linkedin.com/in/yu-zhang-391275181/).  
+To find more information about the paper and other deep-learning based wireless communication work, please visit [DeepMIMO dataset applications](https://deepmimo.net/applications/).  
+To generate your own dataset, please visit [DeepMIMO.net](https://deepmimo.net/).
 
 # License and Referencing
 This code package is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/). If you in any way use this code for research that results in publications, please cite our original article:
