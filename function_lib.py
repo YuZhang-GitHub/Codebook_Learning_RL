@@ -15,32 +15,44 @@ def phases_gen(q_bits):
 
 
 def bf_gain_cal_np(cb, H):
+
+    n_ant = int(H.shape[1] / 2)
+
     bf_r = cb[:, ::2]
     bf_i = cb[:, 1::2]
-    ch_r = H[:, :32]
-    ch_i = H[:, 32:]
-    bf_gain_1 = np.matmul(bf_r, np.transpose(ch_r))
-    bf_gain_2 = np.matmul(bf_i, np.transpose(ch_i))
-    bf_gain_3 = np.matmul(bf_r, np.transpose(ch_i))
-    bf_gain_4 = np.matmul(bf_i, np.transpose(ch_r))
+    ch_r = H[:, :n_ant]
+    ch_i = H[:, n_ant:]
+
+    bf_gain_1 = np.matmul(bf_r, ch_r.transpose())
+    bf_gain_2 = np.matmul(bf_i, ch_i.transpose())
+    bf_gain_3 = np.matmul(bf_r, ch_i.transpose())
+    bf_gain_4 = np.matmul(bf_i, ch_r.transpose())
     bf_gain_r = (bf_gain_1 + bf_gain_2) ** 2
     bf_gain_i = (bf_gain_3 - bf_gain_4) ** 2
+
     bf_gain_pattern = bf_gain_r + bf_gain_i  # BF gain pattern matrix
+
     return bf_gain_pattern
 
 
 def bf_gain_cal(cb, H):
+    
+    n_ant = int(H.size(1) / 2)
+    
     bf_r = cb[:, ::2]
     bf_i = cb[:, 1::2]
-    ch_r = H[:, :32]
-    ch_i = H[:, 32:]
+    ch_r = H[:, :n_ant]
+    ch_i = H[:, n_ant:]
+    
     bf_gain_1 = torch.matmul(bf_r, torch.t(ch_r))
     bf_gain_2 = torch.matmul(bf_i, torch.t(ch_i))
     bf_gain_3 = torch.matmul(bf_r, torch.t(ch_i))
     bf_gain_4 = torch.matmul(bf_i, torch.t(ch_r))
     bf_gain_r = (bf_gain_1 + bf_gain_2) ** 2
     bf_gain_i = (bf_gain_3 - bf_gain_4) ** 2
+    
     bf_gain_pattern = bf_gain_r + bf_gain_i  # BF gain pattern matrix
+    
     return bf_gain_pattern
 
 
